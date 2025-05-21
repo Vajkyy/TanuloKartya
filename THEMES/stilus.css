@@ -1,192 +1,187 @@
 :root {
-    --hatter: #e8f5e9;
-    --dobozHatter: white;
-    --keretSzin: #c8e6c9;
-    --dobozBelső: #f1f8e9;
-    --szoveg: #2e7d32;
-    --gombHatter: #a5d6a7;
-    --gombSzoveg: #1b5e20;
-    --gombHover: #81c784;
-    --hatoldalHatter: #dcedc8;
-    --hatoldalKeret: #388e3c;
-    --valtasHover: #66bb6a;
+  --hatter: #e8f5e9;
+  --dobozHatter: white;
+  --keretSzin: #c8e6c9;
+  --dobozBelső: #f1f8e9;
+  --szoveg: #2e7d32;
+  --gombHatter: #a5d6a7;
+  --gombSzoveg: #1b5e20;
+  --gombHover: #81c784;
+  --hatoldalHatter: #dcedc8;
+  --hatoldalKeret: #388e3c;
+  --valtasHover: #66bb6a;
 }
 
 body.tema1 {
-    --hatter: #e8f5e9;
-    --dobozHatter: white;
-    --keretSzin: #c8e6c9;
-    --dobozBelső: #f1f8e9;
-    --szoveg: #2e7d32;
-    --gombHatter: #a5d6a7;
-    --gombSzoveg: #1b5e20;
-    --gombHover: #81c784;
-    --hatoldalHatter: #dcedc8;
-    --hatoldalKeret: #388e3c;
-    --valtasHover: #66bb6a;
+  --hatter: #e8f5e9;
+  --dobozHatter: white;
+  --keretSzin: #c8e6c9;
+  --dobozBelső: #f1f8e9;
+  --szoveg: #2e7d32;
+  --gombHatter: #a5d6a7;
+  --gombSzoveg: #1b5e20;
+  --gombHover: #81c784;
+  --hatoldalHatter: #dcedc8;
+  --hatoldalKeret: #388e3c;
+  --valtasHover: #66bb6a;
 }
 
 body.tema2 {
-    --hatter: #e3f2fd;
-    --dobozHatter: white;
-    --keretSzin: #bbdefb;
-    --dobozBelső: #e1f5fe;
-    --szoveg: #1565c0;
-    --gombHatter: #90caf9;
-    --gombSzoveg: #0d47a1;
-    --gombHover: #64b5f6;
-    --hatoldalHatter: #b3e5fc;
-    --hatoldalKeret: #0288d1;
-    --valtasHover: #42a5f5;
+  --hatter: #e3f2fd;
+  --dobozHatter: white;
+  --keretSzin: #bbdefb;
+  --dobozBelső: #e1f5fe;
+  --szoveg: #1565c0;
+  --gombHatter: #90caf9;
+  --gombSzoveg: #0d47a1;
+  --gombHover: #64b5f6;
+  --hatoldalHatter: #b3e5fc;
+  --hatoldalKeret: #0288d1;
+  --valtasHover: #42a5f5;
 }
 
 body.tema3 {
-    --hatter: #ffebee;
-    --dobozHatter: white;
-    --keretSzin: #ffcdd2;
-    --dobozBelső: #ffebee;
-    --szoveg: #c62828;
-    --gombHatter: #ef9a9a;
-    --gombSzoveg: #b71c1c;
-    --gombHover: #e57373;
-    --hatoldalHatter: #ffcdd2;
-    --hatoldalKeret: #d32f2f;
-    --valtasHover: #ef5350;
+  --hatter: #ffebee;
+  --dobozHatter: white;
+  --keretSzin: #ffcdd2;
+  --dobozBelső: #ffebee;
+  --szoveg: #c62828;
+  --gombHatter: #ef9a9a;
+  --gombSzoveg: #b71c1c;
+  --gombHover: #e57373;
+  --hatoldalHatter: #ffcdd2;
+  --hatoldalKeret: #d32f2f;
+  --valtasHover: #ef5350;
 }
 
 body {
-    font-family: sans-serif;
-    background: var(--hatter);
-    margin: 0;
-    padding: 0;
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
+  font-family: sans-serif;
+  background: var(--hatter);
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
 }
 
 main {
-    background: var(--dobozHatter);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
+  background: var(--dobozHatter);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
 }
 
 #szamlalo {
-    font-size: 1.2rem;
-    margin: 1rem 0;
-    color: var(--szoveg);
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  color: var(--szoveg);
 }
 
 #kartya {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .kartya {
-    padding: 1rem;
-    border: 2px solid var(--keretSzin);
-    border-radius: 1rem;
-    background: var(--dobozBelső);
+  padding: 1rem;
+  border: 2px solid var(--keretSzin);
+  border-radius: 1rem;
+  background: var(--dobozBelső);
 }
 
 .kartya h2 {
-    margin-bottom: 1.5rem;
-    color: var(--szoveg);
+  margin-bottom: 1.5rem;
+  color: var(--szoveg);
 }
 
 .kartya button {
-    display: block;
-    width: 100%;
-    margin: 0.5rem 0;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: var(--gombHatter);
-    color: var(--gombSzoveg);
-    cursor: pointer;
-    transition: background 0.2s;
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--gombHatter);
+  color: var(--gombSzoveg);
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 .kartya button:hover {
-    background-color: var(--gombHover);
-}
-
-.hatoldal {
-    padding: 1rem;
-    border: 2px solid var(--hatoldalKeret);
-    border-radius: 1rem;
-    background-color: var(--hatoldalHatter);
-    color: var(--gombSzoveg);
+  background-color: var(--gombHover);
 }
 
 #konnyuGomb,
 #nehezGomb {
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: var(--gombHatter);
-    color: var(--gombSzoveg);
-    cursor: pointer;
-    transition: background 0.2s;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--gombHatter);
+  color: var(--gombSzoveg);
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 #konnyuGomb:hover,
 #nehezGomb:hover {
-    background-color: var(--valtasHover);
+  background-color: var(--valtasHover);
 }
 
 .temaValtasGomb {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .temaValtasGomb button {
-    margin: 0 0.5rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 0.5rem;
-    border: none;
-    background-color: var(--gombHatter);
-    color: var(--gombSzoveg);
-    cursor: pointer;
-    transition: background 0.2s;
+  margin: 0 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--gombHatter);
+  color: var(--gombSzoveg);
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 .temaValtasGomb button:hover {
-    background-color: var(--valtasHover);
+  background-color: var(--valtasHover);
 }
 
 .card {
-    position: relative;
-    cursor: pointer;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    transition: rotate 500ms linear;
+  position: relative;
+  cursor: pointer;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: rotate 500ms linear;
 }
 
 .card.show {
-    rotate: y 180deg;
+  rotate: y 180deg;
 }
 
 .card-front,
 .card-back {
-    border: 5px solid #000000;
-    padding: 0.5em;
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-content: center;
-    backface-visibility: hidden;
+  border: 5px solid #000000;
+  padding: 0.5em;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  backface-visibility: hidden;
 }
 
 .card-front {
-    background-color: pink;
+  background-color: pink;
 }
 
 .card-back {
-    background-color: aliceblue;
-    rotate: y 180deg;
+  rotate: y 180deg;
+  padding: 1rem;
+  border: 0px solid var(--keretSzin);
+  border-radius: 4px;
+  background: var(--dobozBelső);
 }

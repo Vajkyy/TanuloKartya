@@ -9,7 +9,7 @@ export default class Kartya {
     this.id = null;
     this.gombok = this.pElem.querySelectorAll(".kerdes:last-child .valasz");
     this.joE = false;
-    this.ellenoriz();    
+    this.ellenoriz();
   }
 
   megjelenit() {
@@ -54,19 +54,26 @@ export default class Kartya {
     this.gombok.forEach((gomb) => {
       gomb.addEventListener("click", () => {
         this.id = parseInt(gomb.value);
-        if (this.id === this.#lista.helyesek[0]) {
+
+        if (this.#sorrend[this.id] === this.#lista.helyesek[0]) {
           this.joE = true;
         }
 
         this.gombok.forEach(
           (g) => ((g.disabled = true), (g.style.backgroundColor = "pink"))
         );
-        this.gombok[this.#lista.helyesek].style.backgroundColor = "lightgreen";
+
+        const helyesIndex = this.#sorrend.findIndex(
+          (valaszIndex) => valaszIndex === this.#lista.helyesek[0]
+        );
+
+        this.gombok[helyesIndex].style.backgroundColor = "lightgreen";
 
         const card = document.querySelector(".card");
         card.addEventListener("click", function () {
           card.classList.toggle("show");
         });
+
         window.dispatchEvent(new CustomEvent("counter", { detail: this.joE }));
       });
     });

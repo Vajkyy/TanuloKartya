@@ -69,6 +69,7 @@ export default class Kartyak {
       let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];
       let maxpont = this.#lista.length;
       let nev = document.querySelector("#pont").value;
+
       if (!nev.trim()) {
         alert("Kérlek, add meg a neved!");
       } else {
@@ -77,19 +78,8 @@ export default class Kartyak {
 
         localStorage.setItem("pontszamok", JSON.stringify(pontok));
 
-        this.adatBetoltes();
         window.location.reload();
       }
-    });
-  }
-
-  adatBetoltes() {
-    let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];
-
-    pontok.forEach((item) => {
-      console.log(`${item.nev}: ${item.pont} pont`);
-      let html = `${item.nev}: ${item.pont} / ${item.maxpont} pont`;
-      this.tabla.insertAdjacentHTML("beforeend", html);
     });
   }
 }

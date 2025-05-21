@@ -21,9 +21,10 @@ nehezGomb.addEventListener("click", () => {
 });
 
 let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];
+let sortores = "<br>";
 
-pontok.forEach((item, index) => {
+pontok.forEach((item) => {
   console.log(`${item.nev}: ${item.pont} pont`);
-  let html = `${item.nev}: ${item.pont} pont`;
+  let html = `${sortores} ${item.nev}: ${item.pont} pont`;
   tabla.insertAdjacentHTML("beforeend", html);
 });

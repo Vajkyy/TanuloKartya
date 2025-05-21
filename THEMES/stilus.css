@@ -130,6 +130,12 @@ main {
   color: var(--gombSzoveg);
   border-radius: 10px;
 }
+.leaderboard {
+  padding: 1rem;
+  border: 2px solid var(--keretSzin);
+  border-radius: 1rem;
+  background: var(--dobozBelső);
+}
 
 #konnyuGomb,
 #nehezGomb,

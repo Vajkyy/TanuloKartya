@@ -12,6 +12,7 @@ export default class Kartyak {
     this.pontMezo = document.querySelector(".pontok");
     this.counter();
     this.ellenorzes();
+    this.tabla = document.querySelector(".leaderboard");
   }
   megjelenit() {
     this.pElem.innerHTML = "";
@@ -35,13 +36,55 @@ export default class Kartyak {
       }`;
       console.log(`Pontjaid: ${this.#lista.length} / ${this.szamlalo}`);
       if (this.kerdesIndex >= this.#lista.length) {
-        this.pElem.innerHTML = `${this.#lista.length} / ${this.szamlalo}`;
-        this.pontMezo.innerHTML = "";
+        this.form();
       } else {
         this.pElem.innerHTML = "";
         new Kartya(this.pElem, this.#lista[this.kerdesIndex]);
         this.kerdesIndex++;
       }
+    });
+  }
+  form() {
+    this.pElem.innerHTML = "";
+    this.pontMezo.innerHTML = "";
+    let html = `
+        <div class="mentes">
+                <h3>Pontjaid mentése</h3>
+            <label for="nev">Név:</label>
+            <input type="text" id="pont" required/><br>
+            Pontjaid: ${this.#lista.length} / ${this.szamlalo}
+            <button id="kuld">Küldés</button>
+        </div>
+    `;
+    this.pElem.insertAdjacentHTML("beforeend", html);
+    this.adatMentes();
+  }
+  adatMentes() {
+    let kuldGomb = document.querySelector("#kuld");
+    kuldGomb.addEventListener("click", () => {
+      let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];
+      let maxpont = this.#lista.length;
+      let nev = document.querySelector("#pont").value;
+      if (!nev.trim()) {
+        alert("Kérlek, add meg a neved!");
+      } else {
+        let pont = this.szamlalo;
+        pontok.push({ nev: nev, pont: pont, maxpont: maxpont });
+
+        localStorage.setItem("pontszamok", JSON.stringify(pontok));
+
+        this.adatBetoltes();
+      }
+    });
+  }
+
+  adatBetoltes() {
+    let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];
+
+    pontok.forEach((item, index) => {
+      console.log(`${item.nev}: ${item.pont} pont`);
+      let html = `${item.nev}: ${item.pont} / ${item.maxpont} pont`;
+      this.tabla.insertAdjacentHTML("beforeend", html);
     });
   }
 }

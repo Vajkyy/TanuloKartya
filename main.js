@@ -5,6 +5,7 @@ import { nehezLista } from "./nehezLista.js";
 let konnyuGomb = document.querySelector("#konnyuGomb");
 let nehezGomb = document.querySelector("#nehezGomb");
 let pElem = document.querySelector(".kartya");
+let tabla = document.querySelector(".leaderboard");
 
 console.log(konnyuGomb);
 konnyuGomb.addEventListener("click", () => {
@@ -17,4 +18,12 @@ nehezGomb.addEventListener("click", () => {
   new Kartyak(pElem, nehezLista);
   konnyuGomb.style.display = "none";
   nehezGomb.style.display = "none";
+});
+
+let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];
+
+pontok.forEach((item, index) => {
+  console.log(`${item.nev}: ${item.pont} pont`);
+  let html = `${item.nev}: ${item.pont} pont`;
+  tabla.insertAdjacentHTML("beforeend", html);
 });

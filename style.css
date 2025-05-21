@@ -85,8 +85,6 @@ main {
 }
 
 .card {
-  width: 200px;
-  height: 300px;
   position: relative;
   cursor: pointer;
   perspective: 1000px;

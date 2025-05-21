@@ -9,10 +9,12 @@ export default class Kartyak {
     this.szamlalo = 0;
     this.kerdesIndex = 1;
     this.gomb = document.querySelector(".ellenoriz");
+    this.pontMezo = document.querySelector(".pontok");
     this.counter();
     this.ellenorzes();
   }
   megjelenit() {
+    this.pElem.innerHTML = "";
     new Kartya(this.pElem, this.#lista[0]);
   }
   counter() {
@@ -24,7 +26,9 @@ export default class Kartyak {
     });
   }
   ellenorzes() {
+    this.pontMezo.innerHTML = `${this.#lista.length} / ${this.szamlalo}`;
     this.gomb.addEventListener("click", () => {
+      this.pontMezo.innerHTML = `${this.#lista.length} / ${this.szamlalo}`;
       console.log(`Pontjaid: ${this.#lista.length} / ${this.szamlalo}`);
       if (this.kerdesIndex >= this.#lista.length) {
         this.pElem.innerHTML = `${this.#lista.length} / ${this.szamlalo}`;

@@ -39,18 +39,19 @@ export default class Kartya {
     this.gombok.forEach((gomb) => {
       gomb.addEventListener("click", () => {
         this.id = parseInt(gomb.value);
-        console.log(this.id);
         if (this.id === this.#lista.helyesek[0]) {
           this.joE = true;
         }
-        this.gombok.forEach((g) => (g.disabled = true));
-        const card = document.querySelector(".card");
 
+        this.gombok.forEach(
+          (g) => ((g.disabled = true), (g.style.backgroundColor = "pink"))
+        );
+        this.gombok[this.#lista.helyesek].style.backgroundColor = "lightgreen";
+
+        const card = document.querySelector(".card");
         card.addEventListener("click", function () {
           card.classList.toggle("show");
         });
-        // let html = `<p>${this.#lista.magyarazat}</p>`;
-        // this.pElem.insertAdjacentHTML("beforeend", html);
         window.dispatchEvent(new CustomEvent("counter", { detail: this.joE }));
       });
     });

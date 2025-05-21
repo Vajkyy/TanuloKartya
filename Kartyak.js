@@ -4,7 +4,7 @@ export default class Kartyak {
   #lista;
   constructor(pElem, lista) {
     this.pElem = pElem;
-    this.#lista = lista;
+    this.#lista = [...lista].sort(() => Math.random() - 0.5);
     this.ellenorizGomb = document.querySelector(".ellenoriz");
     this.megjelenit();
     this.szamlalo = 0;

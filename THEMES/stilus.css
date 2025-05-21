@@ -144,7 +144,11 @@ main {
   cursor: pointer;
   transition: background 0.2s;
 }
-
+.ellenoriz {
+  display: none;
+  margin: auto;
+  margin-top: 10px;
+}
 #konnyuGomb,
 #nehezGomb {
   padding: 0.5rem 1rem;

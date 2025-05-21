@@ -5,6 +5,7 @@ export default class Kartyak {
   constructor(pElem, lista) {
     this.pElem = pElem;
     this.#lista = lista;
+    this.ellenorizGomb = document.querySelector(".ellenoriz");
     this.megjelenit();
     this.szamlalo = 0;
     this.kerdesIndex = 1;
@@ -17,6 +18,7 @@ export default class Kartyak {
   megjelenit() {
     this.pElem.innerHTML = "";
     new Kartya(this.pElem, this.#lista[0]);
+    this.ellenorizGomb.style.display = "block";
   }
   counter() {
     window.addEventListener("counter", (event) => {
@@ -47,6 +49,8 @@ export default class Kartyak {
   form() {
     this.pElem.innerHTML = "";
     this.pontMezo.innerHTML = "";
+    this.ellenorizGomb.style.display = "none";
+    this.pontMezo.style.display = "none";
     let html = `
         <div class="mentes">
                 <h3>Pontjaid mentése</h3>
@@ -74,6 +78,7 @@ export default class Kartyak {
         localStorage.setItem("pontszamok", JSON.stringify(pontok));
 
         this.adatBetoltes();
+        window.location.reload();
       }
     });
   }
@@ -81,7 +86,7 @@ export default class Kartyak {
   adatBetoltes() {
     let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];
 
-    pontok.forEach((item, index) => {
+    pontok.forEach((item) => {
       console.log(`${item.nev}: ${item.pont} pont`);
       let html = `${item.nev}: ${item.pont} / ${item.maxpont} pont`;
       this.tabla.insertAdjacentHTML("beforeend", html);

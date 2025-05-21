@@ -1,13 +1,15 @@
 export default class Kartya {
   #lista;
+  #sorrend;
   constructor(pElem, lista) {
     this.pElem = pElem;
     this.#lista = lista;
+    this.#sorrend = this.kever();
     this.megjelenit();
     this.id = null;
     this.gombok = this.pElem.querySelectorAll(".kerdes:last-child .valasz");
     this.joE = false;
-    this.ellenoriz();
+    this.ellenoriz();    
   }
 
   megjelenit() {
@@ -16,16 +18,16 @@ export default class Kartya {
                     <h1>${this.#lista.kerdes}</h1>
                     <div class="card-font">
                         <button class="valasz" value=0>${
-                          this.#lista.valaszok[0]
+                          this.#lista.valaszok[this.#sorrend[0]]
                         }</button>
                         <button class="valasz" value=1>${
-                          this.#lista.valaszok[1]
+                          this.#lista.valaszok[this.#sorrend[1]]
                         }</button>
                         <button class="valasz" value=2>${
-                          this.#lista.valaszok[2]
+                          this.#lista.valaszok[this.#sorrend[2]]
                         }</button>
                         <button class="valasz" value=3>${
-                          this.#lista.valaszok[3]
+                          this.#lista.valaszok[this.#sorrend[3]]
                         }</button>
                     </div>
                     <div class="card-back">
@@ -35,6 +37,19 @@ export default class Kartya {
         `;
     this.pElem.insertAdjacentHTML("beforeend", html);
   }
+
+  kever() {
+    let tomb = [];
+    while (tomb.length < this.#lista.valaszok.length) {
+      const i = Math.floor(Math.random() * this.#lista.valaszok.length);
+      if (!tomb.includes(i)) {
+        tomb.push(i);
+      }
+    }
+
+    return tomb;
+  }
+
   ellenoriz() {
     this.gombok.forEach((gomb) => {
       gomb.addEventListener("click", () => {

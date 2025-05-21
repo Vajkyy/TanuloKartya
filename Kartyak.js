@@ -26,12 +26,17 @@ export default class Kartyak {
     });
   }
   ellenorzes() {
-    this.pontMezo.innerHTML = `${this.#lista.length} / ${this.szamlalo}`;
+    this.pontMezo.innerHTML = `Pontjaid: <br> ${this.#lista.length} / ${
+      this.szamlalo
+    }`;
     this.gomb.addEventListener("click", () => {
-      this.pontMezo.innerHTML = `${this.#lista.length} / ${this.szamlalo}`;
+      this.pontMezo.innerHTML = `Pontjaid: <br>${this.#lista.length} / ${
+        this.szamlalo
+      }`;
       console.log(`Pontjaid: ${this.#lista.length} / ${this.szamlalo}`);
       if (this.kerdesIndex >= this.#lista.length) {
         this.pElem.innerHTML = `${this.#lista.length} / ${this.szamlalo}`;
+        this.pontMezo.innerHTML = "";
       } else {
         this.pElem.innerHTML = "";
         new Kartya(this.pElem, this.#lista[this.kerdesIndex]);

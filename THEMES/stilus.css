@@ -114,17 +114,25 @@ main {
   background-color: var(--gombHover);
 }
 
+.hatoldal {
+    padding: 1rem;
+    border: 2px solid var(--hatoldalKeret);
+    border-radius: 1rem;
+    background-color: var(--hatoldalHatter);
+    color: var(--gombSzoveg);
+}
+
 #konnyuGomb,
 #nehezGomb {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: var(--gombHatter);
-  color: var(--gombSzoveg);
-  cursor: pointer;
-  transition: background 0.2s;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--gombHatter);
+    color: var(--gombSzoveg);
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 #konnyuGomb:hover,
@@ -179,9 +187,6 @@ main {
 }
 
 .card-back {
-  rotate: y 180deg;
-  padding: 1rem;
-  border: 0px solid var(--keretSzin);
-  border-radius: 4px;
-  background: var(--dobozBelső);
+    background-color: aliceblue;
+    rotate: y 180deg;
 }

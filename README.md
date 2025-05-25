@@ -1,5 +1,12 @@
-Osztályok: Kartya, Kartyak
-Kartya metodusai:
-megjelenit(): Létrehoz egy DOM elemet: kérdéssel és válasz lehetőségekkel, majd hozzáadja a pElembe
-kever(): létrehoz egy új tömbböt, belekeveri a konstruktorban megkapott válaszokat majd visszaadja azt
-ellenoriz(): Az összes válasz gombnak ad egy eseménykezelőt ami az "id" paramétert beállítja a megjelölt válaszéra, majd ellenőrzi hogy egyeznek e
+## Osztályok: Kartya, Kartyak
+
+### Kartya metódusai
+
+- **megjelenit()**  
+  Létrehoz egy DOM elemet, amely tartalmazza a kérdést és a válaszlehetőségeket, majd ezt hozzáadja a megadott `pElem` szülőelemhez.
+
+- **kever()**  
+  Létrehoz egy új tömböt, amelybe a konstruktorban megkapott válaszokat véletlenszerű sorrendben keveri, majd ezt a tömböt visszaadja.
+
+- **ellenoriz()**  
+  Az összes válasz gombhoz eseménykezelőt rendel, amely beállítja az "id" paramétert a kiválasztott válasz értékére, majd ellenőrzi, hogy a válasz helyes-e.

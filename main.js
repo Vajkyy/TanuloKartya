@@ -1,6 +1,6 @@
-import Kartyak from "./Kartyak.js";
-import { konnyuLista } from "./konnyuLista.js";
-import { nehezLista } from "./nehezLista.js";
+import Kartyak from "./COMPONENTS/Kartyak.js";
+import { konnyuLista } from "./LISTS/konnyuLista.js";
+import { nehezLista } from "./LISTS/nehezLista.js";
 
 let konnyuGomb = document.querySelector("#konnyuGomb");
 let nehezGomb = document.querySelector("#nehezGomb");

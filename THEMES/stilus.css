@@ -1,74 +1,75 @@
 :root {
-  --hatter: #e8f5e9;
-  --dobozHatter: white;
-  --keretSzin: #c8e6c9;
-  --dobozBelső: #f1f8e9;
-  --szoveg: #2e7d32;
-  --gombHatter: #a5d6a7;
-  --gombSzoveg: #1b5e20;
-  --gombHover: #81c784;
-  --hatoldalHatter: #dcedc8;
-  --hatoldalKeret: #388e3c;
-  --valtasHover: #66bb6a;
+  --hatter: #0f111a;
+  --dobozHatter: #1a1f2b;
+  --keretSzin: #2e3a59;
+  --dobozBelső: #1d2230;
+  --szoveg: #00ffcc;
+  --gombHatter: #222f3e;
+  --gombSzoveg: #00e6b8;
+  --gombHover: #00bfa5;
+  --hatoldalHatter: #1c2638;
+  --hatoldalKeret: #00ffd5;
+  --valtasHover: #00796b;
 }
 
 body.tema1 {
-  --hatter: #e8f5e9;
-  --dobozHatter: white;
-  --keretSzin: #c8e6c9;
-  --dobozBelső: #f1f8e9;
-  --szoveg: #2e7d32;
-  --gombHatter: #a5d6a7;
-  --gombSzoveg: #1b5e20;
-  --gombHover: #81c784;
-  --hatoldalHatter: #dcedc8;
-  --hatoldalKeret: #388e3c;
-  --valtasHover: #66bb6a;
+  --hatter: #0f111a;
+  --dobozHatter: #1a1f2b;
+  --keretSzin: #2e3a59;
+  --dobozBelső: #1d2230;
+  --szoveg: #00ffcc;
+  --gombHatter: #222f3e;
+  --gombSzoveg: #00e6b8;
+  --gombHover: #00bfa5;
+  --hatoldalHatter: #1c2638;
+  --hatoldalKeret: #00ffd5;
+  --valtasHover: #00796b;
 }
 
 body.tema2 {
-  --hatter: #e3f2fd;
-  --dobozHatter: white;
-  --keretSzin: #bbdefb;
-  --dobozBelső: #e1f5fe;
-  --szoveg: #1565c0;
-  --gombHatter: #90caf9;
-  --gombSzoveg: #0d47a1;
-  --gombHover: #64b5f6;
-  --hatoldalHatter: #b3e5fc;
-  --hatoldalKeret: #0288d1;
-  --valtasHover: #42a5f5;
+  --hatter: #101426;
+  --dobozHatter: #1a233a;
+  --keretSzin: #2c3e50;
+  --dobozBelső: #1e2a40;
+  --szoveg: #7df9ff;
+  --gombHatter: #2a3b4c;
+  --gombSzoveg: #00e6f6;
+  --gombHover: #00cfe2;
+  --hatoldalHatter: #16202e;
+  --hatoldalKeret: #33e0ff;
+  --valtasHover: #008c9e;
 }
 
 body.tema3 {
-  --hatter: #ffebee;
-  --dobozHatter: white;
-  --keretSzin: #ffcdd2;
-  --dobozBelső: #ffebee;
-  --szoveg: #c62828;
-  --gombHatter: #ef9a9a;
-  --gombSzoveg: #b71c1c;
-  --gombHover: #e57373;
-  --hatoldalHatter: #ffcdd2;
-  --hatoldalKeret: #d32f2f;
-  --valtasHover: #ef5350;
+  --hatter: #170f23;
+  --dobozHatter: #22142d;
+  --keretSzin: #3b2b47;
+  --dobozBelső: #251a33;
+  --szoveg: #e97aff;
+  --gombHatter: #3a2440;
+  --gombSzoveg: #d066ff;
+  --gombHover: #b84cff;
+  --hatoldalHatter: #2d1a3a;
+  --hatoldalKeret: #e97aff;
+  --valtasHover: #7e3f99;
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--hatter);
   margin: 0;
   padding: 0;
   display: grid;
   place-items: center;
   min-height: 100vh;
+  color: var(--szoveg);
 }
 
 main {
   background: var(--dobozHatter);
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px #00ffcc40;
   max-width: 600px;
   width: 100%;
   text-align: center;
@@ -78,6 +79,7 @@ main {
   font-size: 1.2rem;
   margin: 1rem 0;
   color: var(--szoveg);
+  text-shadow: 0 0 5px var(--szoveg);
 }
 
 #kartya {
@@ -89,11 +91,13 @@ main {
   border: 2px solid var(--keretSzin);
   border-radius: 1rem;
   background: var(--dobozBelső);
+  box-shadow: 0 0 10px #00ffd540;
 }
 
 .kartya h2 {
   margin-bottom: 1.5rem;
   color: var(--szoveg);
+  text-shadow: 0 0 3px var(--szoveg);
 }
 
 .kartya button {
@@ -107,11 +111,13 @@ main {
   background-color: var(--gombHatter);
   color: var(--gombSzoveg);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 5px #00e6b840;
 }
 
 .kartya button:hover {
   background-color: var(--gombHover);
+  box-shadow: 0 0 10px #00ffd5;
 }
 
 .hatoldal {
@@ -120,7 +126,9 @@ main {
   border-radius: 1rem;
   background-color: var(--hatoldalHatter);
   color: var(--gombSzoveg);
+  box-shadow: 0 0 10px #00ffd540;
 }
+
 .pontok {
   width: max-content;
   margin: auto;
@@ -129,12 +137,17 @@ main {
   background-color: var(--gombHatter);
   color: var(--gombSzoveg);
   border-radius: 10px;
+  box-shadow: 0 0 10px var(--gombSzoveg);
 }
+
 .leaderboard {
   padding: 1rem;
   border: 2px solid var(--keretSzin);
   border-radius: 1rem;
   background: var(--dobozBelső);
+  color: var(--szoveg);
+  font-weight: bold;
+  box-shadow: 0 0 10px var(--szoveg);
 }
 
 #konnyuGomb,
@@ -148,48 +161,46 @@ main {
   background-color: var(--gombHatter);
   color: var(--gombSzoveg);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 5px var(--gombSzoveg);
 }
+
 .ellenoriz {
   display: none;
   margin: auto;
   margin-top: 10px;
 }
-#konnyuGomb,
-#nehezGomb {
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: var(--gombHatter);
-  color: var(--gombSzoveg);
-  cursor: pointer;
-  transition: background 0.2s;
-}
 
 #konnyuGomb:hover,
 #nehezGomb:hover {
   background-color: var(--valtasHover);
+  box-shadow: 0 0 10px var(--valtasHover);
 }
 
 .temaValtasGomb {
-  margin-top: 2rem;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
 }
 
 .temaValtasGomb button {
-  margin: 0 0.5rem;
+  margin: 0;
   padding: 0.4rem 0.8rem;
   border-radius: 0.5rem;
   border: none;
   background-color: var(--gombHatter);
   color: var(--gombSzoveg);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 5px var(--gombSzoveg);
 }
 
 .temaValtasGomb button:hover {
   background-color: var(--valtasHover);
+  box-shadow: 0 0 10px var(--valtasHover);
 }
 
 .card {
@@ -206,48 +217,31 @@ main {
 
 .card-front,
 .card-back {
-  border: 5px solid #000000;
+  border: 2px solid var(--keretSzin);
   padding: 0.5em;
   position: absolute;
   inset: 0;
   display: grid;
   place-content: center;
   backface-visibility: hidden;
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--keretSzin);
 }
 
 .card-front {
-  background-color: pink;
+  background-color: #1e1e2f;
+  color: var(--szoveg);
 }
 
 .card-back {
-  padding: 1rem;
-  border: 02px solid var(--keretSzin);
-  border-radius: 4px;
   background: var(--dobozBelső);
-  background-color: aliceblue;
+  background-color: #121a24;
   rotate: y 180deg;
-}
-.temaValtasGomb {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  gap: 0.5rem;
-  margin: 0;
-}
-
-.temaValtasGomb button {
-  margin: 0;
+  color: var(--szoveg);
 }
 
 .leaderboard {
   position: absolute;
   top: 10px;
   left: 10px;
-  padding: 1rem;
-  border: 2px solid var(--keretSzin);
-  border-radius: 1rem;
-  background: var(--dobozBelső);
-  color: var(--szoveg);
-  font-weight: bold;
 }

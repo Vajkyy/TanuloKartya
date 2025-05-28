@@ -2,21 +2,30 @@
 class Database
 {
     private $host = "localhost";
-    private $dbname = "tanulokartya";
+    private $dbname = "TanuloKartya";
     private $username = "root";
     private $password = "";
     private $conn;
 
-    public function getConnection()
+    public function getConnection(): PDO
     {
         if ($this->conn === null) {
             try {
-                $this->conn = new PDO("mysql:host=$this->host;dbname=$this->dbname;charset=utf8", $this->username, $this->password);
-                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $this->conn = new PDO(
+                    "mysql:host=$this->host;dbname=$this->dbname;charset=utf8mb4",
+                    $this->username,
+                    $this->password,
+                    [
+                        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                    ]
+                );
             } catch (PDOException $e) {
-                die("MySQL kapcsolat hiba: " . $e->getMessage());
+                header('Content-Type: application/json');
+                die(json_encode(["hiba" => "Adatbázis hiba: " . $e->getMessage()]));
             }
         }
         return $this->conn;
     }
 }
+?>

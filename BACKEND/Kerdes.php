@@ -1,50 +1,44 @@
 <?php
 class Kerdes
 {
-    private $kapcsolat;
+    private PDO $kapcsolat;
 
     public function __construct(PDO $db)
     {
         $this->kapcsolat = $db;
     }
 
-    public function nehezsegAlapjan(string $nehezseg)
+    public function listaAlapjan(string $listaNev): array
     {
-        $lekerdezes = $this->kapcsolat->prepare("SELECT * FROM kerdesek WHERE nehezseg = :nehezseg");
-        $lekerdezes->bindParam(':nehezseg', $nehezseg);
-        $lekerdezes->execute();
-        return $lekerdezes->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-   /*  public function hozzaad(string $kerdes, string $valasz, string $nehezseg)
-    {
-        $beszuras = $this->kapcsolat->prepare("INSERT INTO kerdesek (kerdes, valasz, nehezseg) VALUES (:kerdes, :valasz, :nehezseg)");
-        $beszuras->bindParam(':kerdes', $kerdes);
-        $beszuras->bindParam(':valasz', $valasz);
-        $beszuras->bindParam(':nehezseg', $nehezseg);
-        return $beszuras->execute();
-    }
- */
-    public function lekerdezIdAlapjan(int $id)
-    {
-        $lekerdezes = $this->kapcsolat->prepare("SELECT * FROM kerdesek WHERE id = :id");
-        $lekerdezes->bindParam(':id', $id);
-        $lekerdezes->execute();
-        return $lekerdezes->fetch(PDO::FETCH_ASSOC);
-    }
-
-
-    /* public function frissit(int $id, string $kerdes, string $valasz, string $nehezseg)
-    {
-        $frissites = $this->kapcsolat->prepare("
-            UPDATE kerdesek 
-            SET kerdes = :kerdes, valasz = :valasz, nehezseg = :nehezseg 
-            WHERE id = :id
+        $lekerdezes = $this->kapcsolat->prepare("
+            SELECT q.id AS kerdes_id, q.question, q.explanation, 
+                   a.id AS valasz_id, a.answer, a.is_correct
+            FROM question_sets s
+            JOIN questions q ON q.question_set_id = s.id
+            JOIN answers a ON a.question_id = q.id
+            WHERE s.name = :listaNev
+            ORDER BY q.id, a.id
         ");
-        $frissites->bindParam(':kerdes', $kerdes);
-        $frissites->bindParam(':valasz', $valasz);
-        $frissites->bindParam(':nehezseg', $nehezseg);
-        $frissites->bindParam(':id', $id);
-        return $frissites->execute();
-    } */
+        $lekerdezes->bindParam(':listaNev', $listaNev, PDO::PARAM_STR);
+        $lekerdezes->execute();
+        $talalatok = $lekerdezes->fetchAll(PDO::FETCH_ASSOC);
+
+        $kerdesek = [];
+        foreach ($talalatok as $sor) {
+            $kerdesId = $sor['kerdes_id'];
+            if (!isset($kerdesek[$kerdesId])) {
+                $kerdesek[$kerdesId] = [
+                    'kerdes' => $sor['question'],
+                    'indoklas' => $sor['explanation'],
+                    'valaszok' => []
+                ];
+            }
+            $kerdesek[$kerdesId]['valaszok'][] = [
+                'valasz' => $sor['answer'],
+                'helyes' => $sor['is_correct'] ? '1' : '0'
+            ];
+        }
+        return array_values($kerdesek);
+    }
 }
+?>

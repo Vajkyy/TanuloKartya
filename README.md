@@ -1,6 +1,6 @@
 ## Osztályok: Kartya, Kartyak
 
-### Kartya metódusai
+### Kartya osztály metódusai
 
 - **megjelenit()**  
   Létrehoz egy DOM elemet, amely tartalmazza a kérdést és a válaszlehetőségeket, majd ezt hozzáadja a megadott `pElem` szülőelemhez.

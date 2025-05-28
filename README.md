@@ -19,6 +19,9 @@
 - **ellenorzes()**  
   `Következő` gombra tesz egy eseménykezelőt, ami ellenőrzi hogy hányadik kérdésnél jár, ha az utolsónál, meghívja a `form()` metódust, ellenkező esetben új kérdést jelenít meg.
 
+- **szamlaloEvent()**  
+  Megkapja a Szamlalo CustomEventjéből a szamlalo értékét, majd eltárolja.
+
 - **form()**  
   Meghívásakor megjeleníti a formot ahol nevet lehet megadni, majd beküldeni ezt. Végül meghívja az `adatMentes()` metódust.
 
@@ -31,7 +34,7 @@
   Fogadja Kartya osztályból a CustomEvent-et (boolean) majd ha ez `true` akkor növeli a számlálót 1-el.
 
 - **megjelenit()**  
-  Pontok mezőbe illeszti az eddigi elért és maximális pontokat, emellett a Leaderboard-ra is kiírja az eddigi eredményeket
+  CustomEventtel továbbküldi a szamlalo értékét, pontok mezőbe illeszti az eddigi elért és maximális pontokat, emellett a Leaderboard-ra is kiírja az eddigi eredményeket
 
 ### TemaValto osztály metódusai
 

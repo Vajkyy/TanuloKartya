@@ -107,3 +107,28 @@ Ez az API belépési pont.
 ## 🔗 API használata
 
 ### Kérés
+`GET` kérés a következő formában:
+
+
+
+### Példa JavaScript használattal
+
+```js
+fetch('http://localhost/kerdesek.php?lista=könnyű')
+  .then(valasz => valasz.json())
+  .then(adatok => console.log(adatok));
+
+
+[
+  {
+    "kerdes": "Mi Magyarország fővárosa?",
+    "indoklas": "Budapest a főváros.",
+    "valaszok": [
+      {"valasz": "Budapest", "helyes": "1"},
+      {"valasz": "Debrecen", "helyes": "0"},
+      {"valasz": "Pécs", "helyes": "0"}
+    ]
+  },
+  ...
+]
+

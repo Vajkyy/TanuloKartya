@@ -7,11 +7,9 @@ export default class Kartyak {
     this.#lista = [...lista].sort(() => Math.random() - 0.5);
     this.ellenorizGomb = document.querySelector(".ellenoriz");
     this.megjelenit();
-    this.szamlalo = 0;
     this.kerdesIndex = 1;
     this.gomb = document.querySelector(".ellenoriz");
     this.pontMezo = document.querySelector(".pontok");
-    this.counter();
     this.ellenorzes();
     this.tabla = document.querySelector(".leaderboard");
   }
@@ -20,23 +18,8 @@ export default class Kartyak {
     new Kartya(this.pElem, this.#lista[0]);
     this.ellenorizGomb.style.display = "block";
   }
-  counter() {
-    window.addEventListener("counter", (event) => {
-      console.log(event.detail);
-      if (event.detail === true) {
-        this.szamlalo++;
-      }
-    });
-  }
   ellenorzes() {
-    this.pontMezo.innerHTML = `Pontjaid: <br> ${this.#lista.length} / ${
-      this.szamlalo
-    }`;
     this.gomb.addEventListener("click", () => {
-      this.pontMezo.innerHTML = `Pontjaid: <br>${this.#lista.length} / ${
-        this.szamlalo
-      }`;
-      console.log(`Pontjaid: ${this.#lista.length} / ${this.szamlalo}`);
       if (this.kerdesIndex >= this.#lista.length) {
         this.form();
       } else {

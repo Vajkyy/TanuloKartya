@@ -1,0 +1,34 @@
+export default class Szamlalo {
+  constructor(pElem) {
+    this.pElem = pElem;
+    this.szamlalo = 0;
+    this.pontMezo = document.querySelector(".pontok");
+    this.gomb = document.querySelector(".ellenoriz");
+    this.tabla = document.querySelector(".leaderboard");
+    this.counter();
+    this.megjelenit();
+  }
+  counter() {
+    window.addEventListener("counter", (event) => {
+      console.log(event.detail);
+      if (event.detail === true) {
+        this.szamlalo++;
+      }
+    });
+  }
+  megjelenit() {
+    this.pontMezo.innerHTML = `Pontjaid: <br> ${10} / ${this.szamlalo}`;
+    this.gomb.addEventListener("click", () => {
+      this.pontMezo.innerHTML = `Pontjaid: <br> ${10} / ${this.szamlalo}`;
+    });
+
+    let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];
+    let sortores = "<br>";
+
+    pontok.forEach((item) => {
+      console.log(`${item.nev}: ${item.pont} pont`);
+      let html = `${sortores} ${item.nev}: ${item.pont} pont`;
+      this.tabla.insertAdjacentHTML("beforeend", html);
+    });
+  }
+}

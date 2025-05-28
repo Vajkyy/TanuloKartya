@@ -1,30 +1,27 @@
 import Kartyak from "./COMPONENTS/Kartyak.js";
+import Szamlalo from "./COMPONENTS/Szamlalo.js";
 import { konnyuLista } from "./LISTS/konnyuLista.js";
 import { nehezLista } from "./LISTS/nehezLista.js";
+import TemaValto from "./THEMES/temaValto.js";
 
 let konnyuGomb = document.querySelector("#konnyuGomb");
 let nehezGomb = document.querySelector("#nehezGomb");
 let pElem = document.querySelector(".kartya");
-let tabla = document.querySelector(".leaderboard");
+let pontMezo = document.querySelector(".pontok");
 
-console.log(konnyuGomb);
+// Téma váltás, és a számláló osztály példányosítása
+new TemaValto();
+new Szamlalo(pontMezo);
+
+// Könnyű kérdések gombjára eventListener(click) & példányosítás
 konnyuGomb.addEventListener("click", () => {
   new Kartyak(pElem, konnyuLista);
   konnyuGomb.style.display = "none";
   nehezGomb.style.display = "none";
 });
-
+// Nehéz kérdések gombjára eventListener(click) & példányosítás
 nehezGomb.addEventListener("click", () => {
   new Kartyak(pElem, nehezLista);
   konnyuGomb.style.display = "none";
   nehezGomb.style.display = "none";
-});
-
-let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];
-let sortores = "<br>";
-
-pontok.forEach((item) => {
-  console.log(`${item.nev}: ${item.pont} pont`);
-  let html = `${sortores} ${item.nev}: ${item.pont} pont`;
-  tabla.insertAdjacentHTML("beforeend", html);
 });

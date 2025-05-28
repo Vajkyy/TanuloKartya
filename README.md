@@ -40,3 +40,70 @@
 
 - **szinValto()**  
   Amint teljesen betöltött az oldal, minden téma váltó gombra eseménykezelőt tesz, és az alapján állítja a CSS-t.
+
+# TanulóKártya - Kérdés API
+
+Ez az API egy oktató alkalmazás backend része, amely MySQL adatbázisból kérdéseket és válaszokat szolgáltat JSON formátumban.
+
+## 📁 Fájlok
+
+### `Database.php`
+
+Ez az osztály az adatbázis-kapcsolatot kezeli.
+
+#### Metódusok
+
+- **`getConnection(): PDO`**
+  - Létrehoz és visszaad egy PDO kapcsolatot a `TanuloKartya` nevű adatbázishoz.
+  - Beállítja:
+    - Karakterkódolás: UTF-8
+    - Hibakezelés: kivételdobás
+    - Alapértelmezett fetch mód: asszociatív tömb
+  - Hiba esetén JSON formátumú hibaüzenettel áll le.
+
+---
+
+### `Kerdes.php`
+
+Ez az osztály a kérdések és válaszok lekérdezéséért felelős.
+
+#### Metódusok
+
+- **`__construct(PDO $db)`**
+
+  - Inicializálja az objektumot egy PDO adatbázis-kapcsolattal.
+
+- **`listaAlapjan(string $listaNev): array`**
+  - Lekéri az adott kérdéslista nevű `question_set` kérdéseit és válaszait.
+  - Több táblából kapcsol össze adatokat:
+    - `question_sets` (kérdéslista)
+    - `questions` (kérdések)
+    - `answers` (válaszlehetőségek)
+  - Az eredmény egy tömb:
+    - `kerdes`: a kérdés szövege
+    - `indoklas`: magyarázat
+    - `valaszok`: tömb, amely tartalmazza a válaszokat és hogy helyesek-e (`'helyes' => '1'` vagy `'0'`)
+
+---
+
+### `kerdesek.php`
+
+Ez az API belépési pont.
+
+#### Működés
+
+- Betölti a `Database` és `Kerdes` osztályokat.
+- Létrehoz egy adatbázis-kapcsolatot és egy `Kerdes` objektumot.
+- Ha az URL `GET` paramétere tartalmazza a `lista` kulcsot:
+  - Meghívja a `listaAlapjan()` metódust.
+  - Az eredményt JSON formátumban visszaküldi.
+- Ha a `lista` paraméter hiányzik:
+  - Hibát küld vissza.
+- Ha kivétel történik:
+  - 500-as státuszkóddal JSON hibaüzenetet ad vissza.
+
+---
+
+## 🔗 API használata
+
+### Kérés

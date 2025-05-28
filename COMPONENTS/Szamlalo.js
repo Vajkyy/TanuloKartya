@@ -5,6 +5,7 @@ export default class Szamlalo {
     this.pontMezo = document.querySelector(".pontok");
     this.gomb = document.querySelector(".ellenoriz");
     this.tabla = document.querySelector(".leaderboard");
+    this.listaHossz = 0;
     this.counter();
     this.megjelenit();
     this.getSzamlalo();
@@ -18,9 +19,12 @@ export default class Szamlalo {
     });
   }
   megjelenit() {
-    this.pontMezo.innerHTML = `Pontjaid: <br> ${10} / ${this.szamlalo}`;
+    window.addEventListener("listaHossz", (event) => {
+      this.listaHossz = event.detail;
+    });
+    this.pontMezo.innerHTML = `Pontjaid: <br> ${this.listaHossz} / ${this.szamlalo}`;
     this.gomb.addEventListener("click", () => {
-      this.pontMezo.innerHTML = `Pontjaid: <br> ${10} / ${this.szamlalo}`;
+      this.pontMezo.innerHTML = `Pontjaid: <br> ${this.listaHossz} / ${this.szamlalo}`;
       window.dispatchEvent(
         new CustomEvent("szamlalo", { detail: this.szamlalo })
       );

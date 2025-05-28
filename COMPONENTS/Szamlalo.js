@@ -10,7 +10,7 @@ export default class Szamlalo {
     this.getSzamlalo();
   }
   counter() {
-    window.addEventListener("counter", (event) => {
+    window.addEventListener("joValasz", (event) => {
       console.log(event.detail);
       if (event.detail === true) {
         this.szamlalo++;
@@ -21,6 +21,10 @@ export default class Szamlalo {
     this.pontMezo.innerHTML = `Pontjaid: <br> ${10} / ${this.szamlalo}`;
     this.gomb.addEventListener("click", () => {
       this.pontMezo.innerHTML = `Pontjaid: <br> ${10} / ${this.szamlalo}`;
+      window.dispatchEvent(
+        new CustomEvent("szamlalo", { detail: this.szamlalo })
+      );
+      //console.log(this.szamlalo);
     });
 
     let pontok = JSON.parse(localStorage.getItem("pontszamok")) || [];

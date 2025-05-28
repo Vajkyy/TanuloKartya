@@ -16,11 +16,15 @@ export default class Kartya {
       <div class="card kerdes">
         <h1>${this.#kerdesObj.kerdes}</h1>
         <div class="card-font">
-          ${this.#sorrend.map((valaszIdx, i) => `
+          ${this.#sorrend
+            .map(
+              (valaszIdx, i) => `
             <button class="valasz" value="${i}">
               ${this.#kerdesObj.valaszok[valaszIdx].valasz}
             </button>
-          `).join("")}
+          `
+            )
+            .join("")}
         </div>
         <div class="card-back">
           <p>${this.#kerdesObj.indoklas || ""}</p>
@@ -48,13 +52,15 @@ export default class Kartya {
 
         this.joE = valaszObj.helyes === "1" || valaszObj.helyes === 1;
 
-        this.gombok.forEach(g => {
+        this.gombok.forEach((g) => {
           g.disabled = true;
           g.style.backgroundColor = "pink";
         });
 
         const helyesIndex = this.#sorrend.findIndex(
-          idx => this.#kerdesObj.valaszok[idx].helyes === "1" || this.#kerdesObj.valaszok[idx].helyes === 1
+          (idx) =>
+            this.#kerdesObj.valaszok[idx].helyes === "1" ||
+            this.#kerdesObj.valaszok[idx].helyes === 1
         );
         if (helyesIndex !== -1) {
           this.gombok[helyesIndex].style.backgroundColor = "lightgreen";
@@ -65,7 +71,7 @@ export default class Kartya {
           card.classList.toggle("show");
         });
 
-        window.dispatchEvent(new CustomEvent("counter", { detail: this.joE }));
+        window.dispatchEvent(new CustomEvent("joValasz", { detail: this.joE }));
       });
     });
   }

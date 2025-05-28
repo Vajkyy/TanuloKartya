@@ -8,6 +8,8 @@ export default class Kartyak {
     this.ellenorizGomb = document.querySelector(".ellenoriz");
     this.megjelenit();
     this.kerdesIndex = 1;
+    this.pontok = 0;
+    this.szamlaloEvent();
     this.gomb = document.querySelector(".ellenoriz");
     this.pontMezo = document.querySelector(".pontok");
     this.ellenorzes();
@@ -19,6 +21,7 @@ export default class Kartyak {
     this.ellenorizGomb.style.display = "block";
   }
   ellenorzes() {
+    //console.log(this.#lista.length);
     this.gomb.addEventListener("click", () => {
       if (this.kerdesIndex >= this.#lista.length) {
         this.form();
@@ -27,6 +30,11 @@ export default class Kartyak {
         new Kartya(this.pElem, this.#lista[this.kerdesIndex]);
         this.kerdesIndex++;
       }
+    });
+  }
+  szamlaloEvent() {
+    window.addEventListener("szamlalo", (event) => {
+      this.pontok = event.detail;
     });
   }
   form() {
@@ -39,7 +47,7 @@ export default class Kartyak {
                 <h3>Pontjaid mentése</h3>
             <label for="nev">Név:</label>
             <input type="text" id="pont" required/><br>
-            Pontjaid: ${this.#lista.length} / ${this.szamlalo}
+            Pontjaid: ${this.#lista.length} / ${this.pontok}
             <button id="kuld">Küldés</button>
         </div>
     `;
@@ -56,7 +64,7 @@ export default class Kartyak {
       if (!nev.trim()) {
         alert("Kérlek, add meg a neved!");
       } else {
-        let pont = this.szamlalo;
+        let pont = this.pontok;
         pontok.push({ nev: nev, pont: pont, maxpont: maxpont });
 
         localStorage.setItem("pontszamok", JSON.stringify(pontok));

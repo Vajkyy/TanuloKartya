@@ -9,11 +9,11 @@
   Létrehoz egy új tömböt, amelybe a konstruktorban megkapott válaszokat véletlenszerű sorrendben keveri, majd ezt a tömböt visszaadja.
 
 - **ellenoriz()**  
-  Az összes válasz gombhoz eseménykezelőt rendel, amely beállítja az "id" paramétert a kiválasztott válasz értékére, majd ellenőrzi, hogy a válasz helyes-e.
+  Az összes válasz gombhoz eseménykezelőt rendel, amely beállítja az "id" paramétert a kiválasztott válasz értékére, majd ellenőrzi, hogy a válasz helyes-e és ezt CustomEvent-el tovább küldi.
 
 ### Kartyak osztály metódusai
 
-- **megjelenit()**
+- **megjelenit()**\
   Példányosít egy Kartya-t és megjeleníti a `Következő` gombot
 
 - **ellenorzes()**  
@@ -24,3 +24,16 @@
 
 - **adatMentes()**  
   "Küldés" gombra eseménykezelőt tesz, ami kattintásra beküldi a storage-ba az adatokat (pontok, név), ha a név mező üres alertet küld.
+
+### Szamlalo osztály metódusai
+
+- **counter()**
+  Fogadja Kartya osztályból a CustomEvent-et (boolean) majd ha ez `true` akkor növeli a számlálót 1-el.
+
+- **megjelenit()**
+  Pontok mezőbe illeszti az eddigi elért és maximális pontokat, emellett a Leaderboard-ra is kiírja az eddigi eredményeket
+
+### TemaValto osztály metódusai
+
+- **szinValto()**
+  Amint teljesen betöltött az oldal, minden téma váltó gombra eseménykezelőt tesz, és az alapján állítja a CSS-t.

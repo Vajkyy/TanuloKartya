@@ -16,11 +16,11 @@
 - **megjelenit()**
   Példányosít egy Kartya-t és megjeleníti a `Következő` gombot
 
-  - **ellenorzes()**  
+- **ellenorzes()**  
   `Következő` gombra tesz egy eseménykezelőt, ami ellenőrzi hogy hányadik kérdésnél jár, ha az utolsónál, meghívja a `form()` metódust, ellenkező esetben új kérdést jelenít meg.
 
 - **form()**  
   Meghívásakor megjeleníti a formot ahol nevet lehet megadni, majd beküldeni ezt. Végül meghívja az `adatMentes()` metódust.
 
-  - **adatMentes()**  
+- **adatMentes()**  
   "Küldés" gombra eseménykezelőt tesz, ami kattintásra beküldi a storage-ba az adatokat (pontok, név), ha a név mező üres alertet küld.

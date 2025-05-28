@@ -1,4 +1,4 @@
-export const nehezLista = [
+/* export const nehezLista = [
   {
     kerdes: "Mikor adták ki az Aranybullát?",
     valaszok: ["1222", "1301", "1526", "1000"],
@@ -79,3 +79,4 @@ export const nehezLista = [
       "Hunyadi Mátyás erős központi hatalmat és szigorú rendet hozott létre uralkodása alatt.",
   },
 ];
+ */

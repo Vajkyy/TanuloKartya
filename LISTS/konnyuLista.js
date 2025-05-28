@@ -1,4 +1,4 @@
-export const konnyuLista = [
+/* export const konnyuLista = [
   {
     kerdes: "Ki volt az első magyar király?",
     valaszok: ["Szent István", "Mátyás király", "IV. Béla", "Koppány"],
@@ -81,3 +81,4 @@ export const konnyuLista = [
       "Szent Istvánt 1000 karácsonyán vagy 1001. január 1-jén koronázták királlyá.",
   },
 ];
+ */

@@ -13,7 +13,7 @@
 
 ### Kartyak osztály metódusai
 
-- **megjelenit()**\
+- **megjelenit()**  
   Példányosít egy Kartya-t és megjeleníti a `Következő` gombot
 
 - **ellenorzes()**  
@@ -27,13 +27,13 @@
 
 ### Szamlalo osztály metódusai
 
-- **counter()**
+- **counter()**  
   Fogadja Kartya osztályból a CustomEvent-et (boolean) majd ha ez `true` akkor növeli a számlálót 1-el.
 
-- **megjelenit()**
+- **megjelenit()**  
   Pontok mezőbe illeszti az eddigi elért és maximális pontokat, emellett a Leaderboard-ra is kiírja az eddigi eredményeket
 
 ### TemaValto osztály metódusai
 
-- **szinValto()**
+- **szinValto()**  
   Amint teljesen betöltött az oldal, minden téma váltó gombra eseménykezelőt tesz, és az alapján állítja a CSS-t.

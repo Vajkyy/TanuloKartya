@@ -7,6 +7,7 @@ export default class Szamlalo {
     this.tabla = document.querySelector(".leaderboard");
     this.counter();
     this.megjelenit();
+    this.getSzamlalo();
   }
   counter() {
     window.addEventListener("counter", (event) => {
@@ -30,5 +31,8 @@ export default class Szamlalo {
       let html = `${sortores} ${item.nev}: ${item.pont} pont`;
       this.tabla.insertAdjacentHTML("beforeend", html);
     });
+  }
+  getSzamlalo() {
+    return this.szamlalo;
   }
 }
